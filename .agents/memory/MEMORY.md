@@ -1,0 +1,2 @@
+- [Tawsel language direction](rtl-direction.md) — use root direction with normal rows; do not combine RTL with hardcoded row-reverse.
+- [GitHub repository import](github-import.md) — use low-concurrency contents API with retry backoff when archive/blob requests are blocked or rate-limited.

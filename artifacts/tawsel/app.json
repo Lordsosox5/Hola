@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "Tawsel",
+    "slug": "tawsel",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/images/tawsel-icon.png",
+    "scheme": "tawsel",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/images/tawsel-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#C9142C"
+    },
+    "ios": {
+      "supportsTablet": false
+    },
+    "android": {},
+    "web": {
+      "favicon": "./assets/images/tawsel-icon.png"
+    },
+    "plugins": [
+      [
+        "expo-router",
+        {
+          "origin": "https://replit.com/"
+        }
+      ],
+      "expo-font",
+      "expo-web-browser",
+      "@maplibre/maplibre-react-native"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}

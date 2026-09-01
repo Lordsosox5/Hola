@@ -1,0 +1,24 @@
+kind = "mobile"
+previewPath = "/"
+title = "Tawsel"
+description = "An Arabic-first food and grocery delivery mobile app with onboarding, authentication, discovery, ordering, checkout, live tracking, and account management."
+version = "1.0.0"
+id = "artifacts/tawsel"
+router = "expo-domain"
+
+[[services]]
+name = "expo"
+ensurePreviewReachable = "/status"
+paths = [ "/" ]
+localPort = 23658
+
+[services.development]
+run = "pnpm --filter @workspace/tawsel run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/tawsel", "run", "build" ]
+run = [ "pnpm", "--filter", "@workspace/tawsel", "run", "serve" ]
+
+[services.env]
+PORT = "23658"
+BASE_PATH = "/"
