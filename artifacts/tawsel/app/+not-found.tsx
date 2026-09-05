@@ -1,7 +1,7 @@
 import { Link, Stack } from 'expo-router';
 import { StyleSheet, View } from 'react-native';
-import { ArabicText as Text } from '@/components/ArabicText';
 import { useColors } from '@/hooks/useColors';
+import { ArabicText as Text } from '@/components/ArabicText';
 
 export default function NotFoundScreen() {
   const colors = useColors();
@@ -34,7 +34,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: 'bold',
-    fontFamily: 'IBM Arabic',
   },
   link: {
     marginTop: 15,
@@ -42,6 +41,5 @@ const styles = StyleSheet.create({
   },
   linkText: {
     fontSize: 14,
-    fontFamily: 'IBM Arabic',
   },
 });

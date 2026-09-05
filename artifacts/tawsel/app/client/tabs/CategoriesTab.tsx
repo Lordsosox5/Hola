@@ -4,6 +4,10 @@ import { ArabicText as Text, ArabicTextInput as TextInput } from '@/components/A
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
+export default function CategoriesTabRoute() {
+  return null;
+}
+
 export const CategoriesTab = ({
   styles,
   colors,

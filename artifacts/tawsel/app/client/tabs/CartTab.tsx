@@ -4,6 +4,10 @@ import { ArabicText as Text, ArabicTextInput as TextInput } from '@/components/A
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
+export default function CartTabRoute() {
+  return null;
+}
+
 export const CartTab = ({
   styles,
   colors,
@@ -65,11 +69,6 @@ export const CartTab = ({
                   </View>
                 </View>
               ))}
-            </View>
-            <View style={styles.promoInput}>
-              <Ionicons name="pricetag-outline" size={18} color={colors.primary} />
-              <TextInput value={promo} onChangeText={setPromo} placeholder="لديك كوبون خصم؟" placeholderTextColor={colors.mutedForeground} style={styles.promoTextInput} textAlign="right" />
-              <Text style={styles.applyText}>تطبيق</Text>
             </View>
             <Summary styles={styles} subtotal={subtotal} delivery={delivery} total={total} money={money} />
           </>
@@ -210,7 +209,7 @@ export const PaymentScreen = ({
             onPress={() => setPaymentMethod(method.id)}
             style={[
               styles.paymentOption,
-              { flexDirection: 'row-reverse', direction: 'rtl', writingDirection: 'rtl', justifyContent: 'flex-end' },
+              { flexDirection: 'row-reverse', writingDirection: 'rtl', justifyContent: 'flex-end' },
               paymentMethod === method.id && styles.paymentOptionActive,
             ]}
           >
@@ -218,8 +217,8 @@ export const PaymentScreen = ({
               {paymentMethod === method.id ? <View style={styles.radioDot} /> : null}
             </View>
             <View style={{ flex: 1, alignItems: 'flex-end' }}>
-              <Text style={{ textAlign: 'right', alignSelf: 'flex-end', writingDirection: 'rtl', direction: 'rtl' }}>{method.title}</Text>
-              <Text style={{ textAlign: 'right', alignSelf: 'flex-end', writingDirection: 'rtl', direction: 'rtl', color: colors.mutedForeground, fontSize: 10, marginTop: 3 }}>{method.sub}</Text>
+              <Text style={{ textAlign: 'right', alignSelf: 'flex-end', writingDirection: 'rtl' }}>{method.title}</Text>
+              <Text style={{ textAlign: 'right', alignSelf: 'flex-end', writingDirection: 'rtl', color: colors.mutedForeground, fontSize: 10, marginTop: 3 }}>{method.sub}</Text>
             </View>
             <View style={styles.paymentIcon}>
               <Ionicons

@@ -4,6 +4,10 @@ import { ArabicText as Text } from '@/components/ArabicText';
 import { Ionicons } from '@expo/vector-icons';
 import { StatusBar } from 'expo-status-bar';
 
+export default function OrdersTabRoute() {
+  return null;
+}
+
 export const OrdersTab = ({
   styles,
   colors,

@@ -5,6 +5,10 @@ import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { StatusBar } from 'expo-status-bar';
 
+export default function AccountTabRoute() {
+  return null;
+}
+
 export const AccountTab = ({
   styles,
   colors,

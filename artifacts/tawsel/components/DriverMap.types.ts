@@ -6,6 +6,8 @@ export type DriverMapProps = {
   expanded?: boolean;
   driverCoordinate: Coordinate;
   clientCoordinate: Coordinate;
+  pickupCoordinate?: Coordinate;
+  pickupLabel?: string;
   routeCoordinates?: Coordinate[];
   routeProgress?: number;
   isFollowing?: boolean;
@@ -13,6 +15,7 @@ export type DriverMapProps = {
   driverLabel: string;
   clientLabel: string;
   distanceLabel: string;
+  routeLoading?: boolean;
   style?: StyleProp<ViewStyle>;
 };
 

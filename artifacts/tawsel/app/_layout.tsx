@@ -2,12 +2,29 @@ import React, { useEffect } from 'react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
+import { I18nManager, Text, TextInput, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ErrorBoundary } from '@/components/ErrorBoundary';
 import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
-import { Text, TextInput } from 'react-native';
+
+I18nManager.allowRTL(true);
+I18nManager.forceRTL(true);
+I18nManager.swapLeftAndRightInRTL(true);
+
+const NativeText = Text as typeof Text & { defaultProps?: Record<string, unknown> };
+const NativeTextInput = TextInput as typeof TextInput & { defaultProps?: Record<string, unknown> };
+
+NativeText.defaultProps = {
+  ...NativeText.defaultProps,
+  style: [{ fontFamily: 'IBMPlexSansArabic' }, NativeText.defaultProps?.style],
+};
+
+NativeTextInput.defaultProps = {
+  ...NativeTextInput.defaultProps,
+  style: [{ fontFamily: 'IBMPlexSansArabic' }, NativeTextInput.defaultProps?.style],
+};
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -17,36 +34,7 @@ const IBMPlexSansArabicMedium = require('../assets/fonts/IBMPlexSansArabic-Mediu
 const IBMPlexSansArabicSemiBold = require('../assets/fonts/IBMPlexSansArabic-SemiBold.otf');
 const IBMPlexSansArabicBold = require('../assets/fonts/IBMPlexSansArabic-Bold.otf');
 
-const FORCED_ARABIC_FONT = 'IBM Arabic';
-
 const queryClient = new QueryClient();
-
-const NativeText = Text as any;
-const NativeTextInput = TextInput as any;
-const globalFontStyle = {
-  fontFamily: FORCED_ARABIC_FONT,
-  direction: 'ltr',
-  writingDirection: 'ltr',
-  includeFontPadding: false,
-  textAlign: 'left',
-};
-
-const applyGlobalTextDefaults = (Component: any) => {
-  const existingStyles = Array.isArray(Component.defaultProps?.style)
-    ? Component.defaultProps.style
-    : Component.defaultProps?.style
-      ? [Component.defaultProps.style]
-      : [];
-
-  Component.defaultProps = {
-    ...(Component.defaultProps ?? {}),
-    allowFontScaling: true,
-    style: [globalFontStyle, ...existingStyles],
-  };
-};
-
-applyGlobalTextDefaults(NativeText);
-applyGlobalTextDefaults(NativeTextInput);
 
 function RootLayoutNav() {
   return (
@@ -58,10 +46,10 @@ function RootLayoutNav() {
 
 export default function RootLayout() {
   const [fontsLoaded, fontError] = useFonts({
-    'IBM Arabic': IBMPlexSansArabicRegular,
-    'IBM Arabic Medium': IBMPlexSansArabicMedium,
-    'IBM Arabic SemiBold': IBMPlexSansArabicSemiBold,
-    'IBM Arabic Bold': IBMPlexSansArabicBold,
+    IBMPlexSansArabic: IBMPlexSansArabicRegular,
+    IBMPlexSansArabicMedium,
+    IBMPlexSansArabicSemiBold,
+    IBMPlexSansArabicBold,
   });
 
   useEffect(() => {
@@ -76,9 +64,11 @@ export default function RootLayout() {
     <SafeAreaProvider>
       <ErrorBoundary>
         <QueryClientProvider client={queryClient}>
-          <GestureHandlerRootView>
+          <GestureHandlerRootView style={{ flex: 1, direction: 'rtl' as never }}>
             <KeyboardProvider>
-              <RootLayoutNav />
+              <View style={{ flex: 1, direction: 'rtl' as never }}>
+                <RootLayoutNav />
+              </View>
             </KeyboardProvider>
           </GestureHandlerRootView>
         </QueryClientProvider>

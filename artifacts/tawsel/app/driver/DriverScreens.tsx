@@ -23,11 +23,15 @@ const DriverOrderStatusPill = ({ driverOrderStatus, styles, colors }: any) => (
   </View>
 );
 
+export default function DriverScreensRoute() {
+  return null;
+}
+
 export const DriverDashboardScreen = ({ styles, colors, isEnglish, driverOnline, setDriverOnline, driverOrderStatus, go, money, setScreen }: any) => (
   <View style={styles.screen}>
     <StatusBar style="dark" />
     <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
-      <DriverHeader title={isEnglish ? 'Driver center' : 'مركز السائق'} subtitle={isEnglish ? 'Deliver with Tawsel' : 'وصّل مع توصيل'} styles={styles} colors={colors} go={go} />
+      <DriverHeader title={isEnglish ? 'Driver center' : 'مركز السائق'} subtitle={isEnglish ? 'Deliver with Talabati SD' : 'وصّل مع طلباتي SD'} styles={styles} colors={colors} go={go} />
       <View style={styles.driverWelcome}>
         <View style={styles.driverWelcomeIcon}><Ionicons name="bicycle" size={24} color="#fff" /></View>
         <View style={styles.driverWelcomeCopy}>
@@ -51,7 +55,7 @@ export const DriverDashboardScreen = ({ styles, colors, isEnglish, driverOnline,
       <View style={styles.driverStatsRow}>
         <View style={styles.driverStatCard}><Text style={styles.driverStatValue}>8</Text><Text style={styles.driverStatLabel}>{isEnglish ? 'Deliveries' : 'توصيلات'}</Text></View>
         <View style={styles.driverStatCard}><Text style={styles.driverStatValue}>4.9</Text><Text style={styles.driverStatLabel}>{isEnglish ? 'Rating' : 'التقييم'}</Text></View>
-        <View style={styles.driverStatCard}><Text style={styles.driverStatValue}>SAR 186</Text><Text style={styles.driverStatLabel}>{isEnglish ? 'Today' : 'اليوم'}</Text></View>
+        <View style={styles.driverStatCard}><Text style={styles.driverStatValue}>186 SDG</Text><Text style={styles.driverStatLabel}>{isEnglish ? 'Today' : 'اليوم'}</Text></View>
       </View>
 
       <View style={styles.driverSectionHeader}>
@@ -110,7 +114,7 @@ export const DriverEarningsScreen = ({ styles, colors, isEnglish, go }: any) => 
     <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
       <DriverHeader title={isEnglish ? 'Earnings' : 'الأرباح'} subtitle={isEnglish ? 'Track your income' : 'تابع دخلك'} styles={styles} colors={colors} go={go} />
       <View style={styles.driverEarningsHero}>
-        <View><Text style={styles.driverEarningsEyebrow}>{isEnglish ? 'Available balance' : 'الرصيد المتاح'}</Text><Text style={styles.driverEarningsValue}>1,240 <Text style={styles.driverEarningsCurrency}>SAR</Text></Text><Text style={styles.driverEarningsSub}>{isEnglish ? '+12% from last week' : '+12% من الأسبوع الماضي'}</Text></View>
+        <View><Text style={styles.driverEarningsEyebrow}>{isEnglish ? 'Available balance' : 'الرصيد المتاح'}</Text><Text style={styles.driverEarningsValue}>1,240 <Text style={styles.driverEarningsCurrency}>SDG</Text></Text><Text style={styles.driverEarningsSub}>{isEnglish ? '+12% from last week' : '+12% من الأسبوع الماضي'}</Text></View>
         <View style={styles.driverEarningsIcon}><Ionicons name="wallet-outline" size={25} color="#fff" /></View>
       </View>
     </ScrollView>
@@ -142,17 +146,16 @@ export const DriverAccountScreen = ({ styles, colors, isEnglish, name, phone, go
   </View>
 );
 
-export const DriverSettingsScreen = ({ styles, colors, isEnglish, driverNotifications, setDriverNotifications, setIsEnglish, go, resetTo }: any) => (
+export const DriverSettingsScreen = ({ styles, colors, isEnglish, driverNotifications, setDriverNotifications, go, resetTo }: any) => (
   <View style={styles.screen}>
     <StatusBar style="dark" />
     <ScrollView showsVerticalScrollIndicator={false} contentContainerStyle={{ paddingBottom: 100 }}>
       <DriverHeader title={isEnglish ? 'Settings' : 'الإعدادات'} subtitle={isEnglish ? 'Control your driver preferences' : 'تحكم في تفضيلات السائق'} styles={styles} colors={colors} go={go} />
       <Text style={styles.driverSettingsSection}>{isEnglish ? 'Preferences' : 'التفضيلات'}</Text>
-      <Pressable style={styles.driverSettingRow} onPress={() => setIsEnglish((current: boolean) => !current)}><View style={styles.driverSettingIcon}><Ionicons name="language-outline" size={20} color={colors.primary} /></View><View style={styles.driverSettingCopy}><Text style={styles.driverSettingTitle}>{isEnglish ? 'Language' : 'اللغة'}</Text><Text style={styles.driverSettingSub}>{isEnglish ? 'English' : 'العربية'}</Text></View><Ionicons name="chevron-forward" size={18} color={colors.mutedForeground} /></Pressable>
       <View style={styles.driverSettingRow}><View style={styles.driverSettingIcon}><Ionicons name="notifications-outline" size={20} color={colors.primary} /></View><View style={styles.driverSettingCopy}><Text style={styles.driverSettingTitle}>{isEnglish ? 'Delivery notifications' : 'إشعارات التوصيل'}</Text><Text style={styles.driverSettingSub}>{isEnglish ? 'Receive new request alerts' : 'استقبل تنبيهات الطلبات الجديدة'}</Text></View><Pressable accessibilityRole="switch" accessibilityState={{ checked: driverNotifications }} onPress={() => setDriverNotifications((current: boolean) => !current)} style={[styles.driverToggle, driverNotifications && styles.driverToggleOn]}><View style={[styles.driverToggleKnob, driverNotifications && styles.driverToggleKnobOn]} /></Pressable></View>
       <Text style={styles.driverSettingsSection}>{isEnglish ? 'Support' : 'الدعم'}</Text>
-      <Pressable style={styles.driverSettingRow} onPress={() => go('driverSupport')}><View style={styles.driverSettingIcon}><Ionicons name="help-circle-outline" size={20} color={colors.primary} /></View><View style={styles.driverSettingCopy}><Text style={styles.driverSettingTitle}>{isEnglish ? 'Help center' : 'مركز المساعدة'}</Text><Text style={styles.driverSettingSub}>{isEnglish ? 'Get help with deliveries' : 'احصل على المساعدة في التوصيلات'}</Text></View><Ionicons name="chevron-forward" size={18} color={colors.mutedForeground} /></Pressable>
-      <Pressable style={styles.driverSettingRow} onPress={() => resetTo('intro')}><View style={styles.driverSettingIcon}><Ionicons name="log-out-outline" size={20} color={colors.primary} /></View><View style={styles.driverSettingCopy}><Text style={styles.driverSettingTitle}>{isEnglish ? 'Log out' : 'تسجيل الخروج'}</Text><Text style={styles.driverSettingSub}>{isEnglish ? 'Switch account or role' : 'تبديل الحساب أو نوع المستخدم'}</Text></View><Ionicons name="chevron-forward" size={18} color={colors.mutedForeground} /></Pressable>
+      <Pressable style={styles.driverSettingRow} onPress={() => go('driverSupport')}><View style={styles.driverSettingIcon}><Ionicons name="help-circle-outline" size={20} color={colors.primary} /></View><View style={styles.driverSettingCopy}><Text style={styles.driverSettingTitle}>{isEnglish ? 'Help center' : 'مركز المساعدة'}</Text><Text style={styles.driverSettingSub}>{isEnglish ? 'Get help with deliveries' : 'احصل على المساعدة في التوصيلات'}</Text></View><Ionicons name="chevron-back" size={18} color={colors.mutedForeground} /></Pressable>
+      <Pressable style={styles.driverSettingRow} onPress={() => resetTo('intro')}><View style={styles.driverSettingIcon}><Ionicons name="log-out-outline" size={20} color={colors.primary} /></View><View style={styles.driverSettingCopy}><Text style={styles.driverSettingTitle}>{isEnglish ? 'Log out' : 'تسجيل الخروج'}</Text><Text style={styles.driverSettingSub}>{isEnglish ? 'Switch account or role' : 'تبديل الحساب أو نوع المستخدم'}</Text></View><Ionicons name="chevron-back" size={18} color={colors.mutedForeground} /></Pressable>
     </ScrollView>
   </View>
 );

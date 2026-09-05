@@ -33,6 +33,10 @@ const ProductCard = ({ item, onPress, onAdd, styles, colors, isEnglish, money }:
   </Pressable>
 );
 
+export default function HomeTabRoute() {
+  return null;
+}
+
 export const HomeTab = ({
   styles,
   colors,
@@ -92,7 +96,7 @@ export const HomeTab = ({
               <Text style={styles.helloText}>أهلاً محمد <Text style={styles.wave}>✦</Text></Text>
               <Pressable onPress={() => go('addresses')} style={styles.locationLine}>
                 <Ionicons name="location" size={15} color={colors.primary} />
-                <Text style={styles.locationText}>{address}</Text>
+                <Text style={styles.locationText}>{address || 'إضافة عنوان'}</Text>
                 <Ionicons name="chevron-down" size={14} color={colors.mutedForeground} />
               </Pressable>
             </View>

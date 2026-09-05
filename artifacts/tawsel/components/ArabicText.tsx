@@ -5,10 +5,10 @@ import {
   TextInput as NativeTextInput,
 } from 'react-native';
 
-const IBM_ARABIC = 'IBM Arabic';
-const IBM_ARABIC_MEDIUM = 'IBM Arabic Medium';
-const IBM_ARABIC_SEMIBOLD = 'IBM Arabic SemiBold';
-const IBM_ARABIC_BOLD = 'IBM Arabic Bold';
+const IBM_ARABIC = 'IBMPlexSansArabic';
+const IBM_ARABIC_MEDIUM = 'IBMPlexSansArabicMedium';
+const IBM_ARABIC_SEMIBOLD = 'IBMPlexSansArabicSemiBold';
+const IBM_ARABIC_BOLD = 'IBMPlexSansArabicBold';
 
 function fontForWeight(weight: unknown) {
   const normalized = String(weight ?? '400').toLowerCase();

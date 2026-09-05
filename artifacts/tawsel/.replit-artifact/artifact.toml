@@ -1,6 +1,6 @@
 kind = "mobile"
 previewPath = "/"
-title = "Tawsel"
+title = "طلباتي SD"
 description = "An Arabic-first food and grocery delivery mobile app with onboarding, authentication, discovery, ordering, checkout, live tracking, and account management."
 version = "1.0.0"
 id = "artifacts/tawsel"

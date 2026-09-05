@@ -1,17 +1,16 @@
 import React, { useState } from 'react';
 import {
   Modal,
-  Platform,
   Pressable,
   ScrollView,
   StyleSheet,
-  Text,
   View,
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useColors } from '@/hooks/useColors';
 import { Feather } from '@expo/vector-icons';
 import { reloadAppAsync } from 'expo';
+import { ArabicText as Text } from './ArabicText';
 
 export type ErrorFallbackProps = {
   error: Error;
@@ -40,12 +39,6 @@ export function ErrorFallback({ error, resetError }: ErrorFallbackProps) {
     }
     return details;
   };
-
-  const monoFont = Platform.select({
-    ios: 'Menlo',
-    android: 'monospace',
-    default: 'monospace',
-  });
 
   return (
     <View style={[styles.container, { backgroundColor: colors.background }]}>
@@ -150,7 +143,7 @@ export function ErrorFallback({ error, resetError }: ErrorFallbackProps) {
                       styles.errorText,
                       {
                         color: colors.foreground,
-                        fontFamily: monoFont,
+                        fontFamily: 'IBMPlexSansArabic',
                       },
                     ]}
                     selectable
